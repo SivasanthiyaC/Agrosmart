@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Place Order</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">AgroSmart - Buyer</div>
+</header>
+
+<main class="dashboard">
+    <h2>Confirm Order</h2>
+
+    <p><strong>Crop:</strong> <span th:text="${crop.name}"></span></p>
+    <p><strong>Season:</strong> <span th:text="${crop.season}"></span></p>
+    <p><strong>Price per unit:</strong> ₹<span th:text="${crop.price}"></span></p>
+
+    <form th:action="@{/buyer/order}" method="post">
+		<input type="hidden" name="cropId" th:value="${crop.cropId}">
+
+
+        <label>Quantity:</label>
+        <input type="number" name="quantity" min="1" required>
+
+        <br><br>
+        <button class="btn" type="submit">Confirm Order</button>
+    </form>
+</main>
+
+</body>
+</html>

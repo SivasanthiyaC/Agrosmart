@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+
+<header>
+    <h2>Admin Dashboard</h2>
+    <a href="/admin/logout">Logout</a>
+</header>
+
+<div class="container dashboard">
+
+    <a href="/admin/farmers" class="card">
+        Farmers<br><br>
+        View all farmers
+    </a>
+
+    <a href="/admin/buyers" class="card">
+        Buyers<br><br>
+        View all buyers
+    </a>
+
+    <a href="/admin/orders" class="card">
+        Orders<br><br>
+        View all orders
+    </a>
+
+</div>
+
+</body>
+</html>

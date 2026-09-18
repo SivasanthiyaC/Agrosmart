@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Farmers</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Registered Farmers</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+			<th>Status</th>
+			<th>Action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="farmer : ${farmers}">
+            <td th:text="${farmer.farmerId}"></td>
+            <td th:text="${farmer.name}"></td>
+            <td th:text="${farmer.email}"></td>
+            <td th:text="${farmer.phone}"></td>
+			<td th:text="${farmer.status}"></td>
+
+			<td>
+				<a th:href="@{/admin/farmers/approve/{id}(id=${farmer.farmerId})}">
+				    Approve
+				</a>
+
+
+			    <a th:if="${farmer.status == 'APPROVED'}"
+			       th:href="@{/admin/farmers/block/{id}(id=${farmer.farmerId})}">
+			        Block
+			    </a>
+			</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="/admin/dashboard" class="back-link">← Back to Dashboard</a>
+</div>
+
+</body>
+</html>

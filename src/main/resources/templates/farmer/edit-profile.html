@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>AgroSmart - Farmer</h2>
+    <a href="/farmer/dashboard">Dashboard</a>
+    <a href="/farmer/profile">Profile</a>
+	<a href="/farmer/logout">Logout</a>
+
+</div>
+
+<div class="container">
+    <h1>Edit Profile</h1>
+
+    <form th:action="@{/farmer/update-profile}" method="post" th:object="${farmer}">
+        
+        <input type="hidden" th:field="*{farmerId}" />
+
+        <label>Name</label>
+        <input type="text" th:field="*{name}" required>
+
+        <label>Email</label>
+        <input type="email" th:field="*{email}" readonly>
+
+        <label>Phone</label>
+        <input type="text" th:field="*{phone}" required>
+
+        <label>Address</label>
+        <input type="text" th:field="*{address}" required>
+
+        <button type="submit">Update Profile</button>
+    </form>
+</div>
+
+</body>
+</html>

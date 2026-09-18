@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Farmer Orders</title>
+    <link rel="stylesheet" th:href="@{/css/orders.css}">
+	
+</head>
+<body>
+	
+<div class="page-container">
+
+    <h2 class="title">📦 Farmer Orders</h2>
+
+    <div class="card">
+        <table class="styled-table">
+
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Crop</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:if="${#lists.isEmpty(orders)}">
+                    <td colspan="6" class="no-data">
+                        No orders found 📭
+                    </td>
+                </tr>
+
+                <tr th:each="order : ${orders}">
+                    <td th:text="${order.id}"></td>
+                    <td th:text="${order.crop.name}"></td>
+                    <td th:text="${order.quantity}"></td>
+                    <td th:text="${order.price}"></td>
+                    <td th:text="${order.status}"></td>
+                    <td>
+                        <a th:href="@{/farmer/orders/accept/{id}(id=${order.id})}">Accept</a>
+                        |
+                        <a th:href="@{/farmer/orders/reject/{id}(id=${order.id})}">Reject</a>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+    <br>
+    <a href="/farmer/dashboard">⬅ Back to Dashboard</a>
+
+</div>
+</body>
+</html>

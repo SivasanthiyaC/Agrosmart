@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Orders</title>
+    <link rel="stylesheet" th:href="@{/css/orders.css}">
+</head>
+<body>
+	<header class="top-bar">
+	    <div class="logo">AgroSmart - Buyer</div>
+	    <nav>
+	        <a th:href="@{/buyer/dashboard}">Dashboard</a>
+	        <a th:href="@{/buyer/orders}">My Orders</a>
+			<a th:href="@{/buyer/crops}">View Crops</a>
+			<a th:href="@{/buyer/logout}">Logout</a>
+
+	    </nav>
+	</header>
+
+
+<div class = "container">
+<h2>📦 My Orders</h2>
+
+<table border="1" width="100%" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Crop</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:if="${#lists.isEmpty(orders)}">
+            <td colspan="5" style="text-align:center;">
+                No orders found 📭
+            </td>
+        </tr>
+
+		<tr th:each="order : ${orders}">
+		    <td th:text="${order.id}"></td>
+		    <td th:text="${order.crop != null ? order.crop.name : 'N/A'}"></td>
+		    <td th:text="${order.quantity}"></td>
+		    <td th:text="${order.price}"></td>
+		    <td th:text="${order.status}"></td>
+		</tr>
+
+		
+
+    </tbody>
+</table>
+</div>
+</body>
+</html>

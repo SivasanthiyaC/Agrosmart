@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Farmer Profile</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>AgroSmart - Farmer</h2>
+    <a href="/farmer/dashboard">Dashboard</a>
+    <a href="/farmer/profile">Profile</a>
+	<a href="/farmer/logout">Logout</a>
+
+</div>
+
+<div class="container">
+    <h1>My Profile</h1>
+
+	<div class="profile-card">
+	    <p><strong>Name:</strong> <span th:text="${farmer?.name}"></span></p>
+	    <p><strong>Email:</strong> <span th:text="${farmer?.email}"></span></p>
+	    <p><strong>Mobile:</strong> <span th:text="${farmer?.phone}"></span></p>
+	    <p><strong>Location:</strong> <span th:text="${farmer?.address}"></span></p>
+
+		<a href="/farmer/edit-profile" class="btn">Edit Profile</a>
+
+	</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Check Market Price</title>
+    <link rel="stylesheet" th:href="@{/css/market.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="navbar">
+				    <h2>AgroSmart - Farmer</h2>
+				    <a href="/farmer/dashboard">Dashboard</a>
+				    <a href="/farmer/profile">Profile</a>
+					<a href="/farmer/logout">Logout</a>
+
+				</div>
+
+<div class="market-container">
+    <h2>Check Market Price</h2>
+
+    <form th:action="@{/farmer/market/check}" method="post">
+        <label>Select Crop</label>
+        <select name="cropName" required>
+            <option value="Groundnut">Groundnut</option>
+            <option value="Millet">Millet</option>
+            <option value="Rice">Rice</option>
+        </select>
+
+        <button type="submit">Check Price</button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buyers</title>
+	<link rel="stylesheet" th:href="@{/css/admin.css}">
+
+</head>
+<body>
+	<div class="container">
+<h2>All Buyers</h2>
+
+<table class="admin-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="buyer : ${buyers}">
+            <td th:text="${buyer.id}"></td>
+            <td th:text="${buyer.name}"></td>
+            <td th:text="${buyer.email}"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<br>
+<a href="/admin/dashboard">⬅ Back</a>
+</div>
+</body>
+</html>

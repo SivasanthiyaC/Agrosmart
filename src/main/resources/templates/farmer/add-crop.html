@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Crop</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>AgroSmart - Farmer</h2>
+    <a href="/farmer/dashboard">Dashboard</a>
+    <a href="/farmer/crops">My Crops</a>
+	<a href="/farmer/logout">Logout</a>
+</div>
+
+<div class="form-container">
+    <h2>Add New Crop 🌱</h2>
+
+    <form th:action="@{/farmer/crops/save}" method="post" class="crop-form">
+
+        <input type="text" name="name" placeholder="Crop Name" required>
+
+        <input type="text" name="soilType" placeholder="Soil Type" required>
+
+        <input type="text" name="season" placeholder="Season" required>
+
+        <input type="number" step="0.01" name="price" placeholder="Price" required>
+
+        <textarea name="recommendations" placeholder="Notes / Recommendations"></textarea>
+
+        <button type="submit">Add Crop</button>
+    </form>
+</div>
+
+</body>
+</html>

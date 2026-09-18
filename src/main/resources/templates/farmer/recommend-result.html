@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Recommended Crops</title>
+    <link rel="stylesheet" th:href="@{/css/recommend.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div class="navbar">
+			    <h2>AgroSmart - Farmer</h2>
+			    <a href="/farmer/dashboard">Dashboard</a>
+			    <a href="/farmer/profile">Profile</a>
+				<a href="/farmer/logout">Logout</a>
+
+			</div>
+
+
+<div class="container">
+    <h2>🌱 Recommended Crops</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Season</th>
+                <th>Soil</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="crop : ${crops}">
+                <td th:text="${crop.name}"></td>
+                <td th:text="${crop.season}"></td>
+                <td th:text="${crop.soilType}"></td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(crops)}">
+                <td colspan="3" class="no-data">
+                    No suitable crops found for selected conditions
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/farmer/dashboard" class="back-btn">← Back</a>
+</div>
+
+</body>
+</html>

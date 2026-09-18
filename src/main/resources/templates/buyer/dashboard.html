@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+    <title>Buyer Dashboard</title>
+	<link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+
+<body>
+
+<header class="top-bar">
+    <div class="logo">AgroSmart – Buyer</div>
+    <nav>
+        <a th:href="@{/buyer/dashboard}">Dashboard</a>
+        <a th:href="@{/buyer/crops}">View Crops</a>
+        <a th:href="@{/buyer/orders}">My Orders</a>
+		<a th:href="@{/buyer/logout}">Logout</a>
+
+    </nav>
+</header>
+
+<main class="dashboard">
+    <h1>Welcome Buyer 🛒</h1>
+
+    <div class="card-container">
+
+        <div class="card">
+            <h3>🌾 View Crops</h3>
+            <p>Browse available crops from farmers</p>
+            <a th:href="@{/buyer/crops}" class="btn">View Crops</a>
+        </div>
+
+        <div class="card">
+            <h3>📦 My Orders</h3>
+            <p>Track your purchased orders</p>
+            <a th:href="@{/buyer/orders}" class="btn">My Orders</a>
+        </div>
+
+    </div>
+</main>
+
+</body>
+
+</html>

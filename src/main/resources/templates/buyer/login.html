@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buyer Login</title>
+    <link rel="stylesheet" th:href="@{/css/buyer-login.css}">
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Buyer Login</h2>
+
+    <form th:action="@{/buyer/login}" method="post">
+        <input type="email" name="email" placeholder="Enter Email" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p th:if="${error}" class="error-msg" th:text="${error}"></p>
+
+    <div class="back-link">
+        <a href="/">← Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

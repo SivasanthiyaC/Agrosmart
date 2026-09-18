@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Farmer Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+	<div class="navbar">
+	    <h2>AgroSmart - Farmer</h2>
+	    <a href="/farmer/dashboard">Dashboard</a>
+	    <a href="/farmer/profile">Profile</a>
+		<a href="/farmer/logout">Logout</a>
+
+	</div>
+<div class="page-container">
+
+<h2 class="title">👨‍🌾 Farmer Dashboard</h2>
+
+<div class="dashboard">
+
+    <div class="card">
+        <h3>🌾 My Crops</h3>
+        <p>Manage and view your crops</p>
+        <a href="/farmer/crops" class="btn">View Crops</a>
+    </div>
+
+    <div class="card">
+        <h3>🌱 Crop Recommendation</h3>
+        <p>Get best crops based on soil & season</p>
+        <a href="/farmer/crops/recommend" class="btn">Check Now</a>
+    </div>
+
+    <div class="card">
+        <h3>📊 Market Prices</h3>
+        <p>View latest crop market prices</p>
+		<a href="/farmer/market" class="btn">Market Prices</a>
+
+    </div>
+
+	
+	<div class="card">
+	    <h3>📦 My Orders</h3>
+	    <p>View and manage buyer orders</p>
+	    <a href="/farmer/orders" class="btn">My Orders</a>
+	</div>
+
+
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Crops</title>
+    <link rel="stylesheet" th:href="@{/css/dashboard.css}">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="logo">AgroSmart - Buyer</div>
+    <nav>
+        <a th:href="@{/buyer/dashboard}">Dashboard</a>
+        <a th:href="@{/buyer/crops}">View Crops</a>
+        <a th:href="@{/buyer/orders}">My Orders</a>
+		<a th:href="@{/buyer/logout}">Logout</a>
+
+    </nav>
+</header>
+
+<main class="dashboard">
+    <h1>🌾 Available Crops</h1>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Crop</th>
+                <th>Season</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+		<tbody>
+		<tr th:if="${crops.empty}">
+		    <td colspan="4" style="text-align:center;">No crops available</td>
+		</tr>
+
+		<tr th:each="crop : ${crops}">
+		    <td th:text="${crop.name}"></td>
+		    <td th:text="${crop.season}"></td>
+		    <td th:text="${crop.price}"></td>
+		    <td>
+		        <form th:action="@{/buyer/order}" method="post" style="display:flex; gap:8px;">
+		            <!-- IMPORTANT: use crop.cropId -->
+		            <input type="hidden" name="cropId" th:value="${crop.cropId}">
+		            
+		            <input type="number"
+		                   name="quantity"
+		                   min="1"
+		                   placeholder="Qty"
+		                   required>
+
+		            <button type="submit" class="btn">Buy</button>
+		        </form>
+		    </td>
+		</tr>
+		</tbody>
+
+    </table>
+</main>
+
+</body>
+</html>

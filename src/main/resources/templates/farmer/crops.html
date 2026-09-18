@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Crops</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>AgroSmart - Farmer</h2>
+    <a href="/farmer/dashboard">Dashboard</a>
+    <a href="/farmer/profile">Profile</a>
+	<a href="/farmer/logout">Logout</a>
+
+</div>
+
+<div class="container">
+    <h1>My Crops</h1>
+
+    <a class="btn" href="/farmer/crops/add">➕ Add New Crop</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Season</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="crop : ${crops}">
+                <td th:text="${crop.name}"></td>
+                <td th:text="${crop.season}"></td>
+                <td th:text="${crop.price}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
